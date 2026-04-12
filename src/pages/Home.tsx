@@ -160,7 +160,8 @@ export default function Home() {
                   time: "48 годин",
                   result: "CTR +60%, віральне охоплення",
                   ratio: "aspect-[9/16]",
-                  accent: "from-red-600/20"
+                  accent: "from-red-600/20",
+                  video: "/case1chery.mp4"
                 },
                 {
                   title: "Косметика 'To Be'",
@@ -168,7 +169,8 @@ export default function Home() {
                   time: "3 дні",
                   result: "Зростання продажів у 3 рази",
                   ratio: "aspect-video",
-                  accent: "from-blue-600/20"
+                  accent: "from-blue-600/20",
+                  video: "/case2To Be'.mp4"
                 },
                 {
                   title: "Автосалон Porsche",
@@ -176,7 +178,8 @@ export default function Home() {
                   time: "2 дні",
                   result: "ROI 320% на рекламній кампанії",
                   ratio: "aspect-[9/16]",
-                  accent: "from-yellow-600/20"
+                  accent: "from-yellow-600/20",
+                  video: "/case3Porsche.mp4"
                 }
               ].map((item, i) => (
                 <motion.div 
@@ -187,13 +190,24 @@ export default function Home() {
                   className="group cursor-pointer"
                 >
                   <div className={`w-full ${item.ratio} bg-slate-900 rounded-[2rem] mb-8 relative overflow-hidden border border-white/5 group-hover:border-white/20 transition-all duration-700`}>
-                    <div className={`absolute inset-0 bg-gradient-to-br ${item.accent} to-transparent opacity-50 group-hover:opacity-100 transition-opacity`} />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-500 border border-white/20">
+                    <video 
+                      src={item.video}
+                      className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+                      muted
+                      loop
+                      playsInline
+                      onMouseOver={(e) => e.currentTarget.play()}
+                      onMouseOut={(e) => {
+                        e.currentTarget.pause();
+                        e.currentTarget.currentTime = 0;
+                      }}
+                    />
+                    <div className="absolute inset-0 pointer-events-none flex items-center justify-center group-hover:opacity-0 transition-opacity duration-300">
+                      <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20">
                         <Play className="text-white fill-white ml-1" size={32} />
                       </div>
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-slate-950 to-transparent">
+                    <div className="absolute bottom-0 left-0 right-0 p-8 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-slate-950 to-transparent pointer-events-none">
                       <span className="text-xs font-black uppercase tracking-[0.2em] text-neon-green">Дивитися кейс</span>
                     </div>
                   </div>
@@ -421,7 +435,7 @@ export default function Home() {
 
               <div className="w-full aspect-[16/9] relative">
                 <img 
-                  src="https://picsum.photos/seed/creative-gold-success/1200/675" 
+                  src="/1776016360.png" 
                   alt="Creative Collaboration and Success" 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
