@@ -4,10 +4,10 @@ import { Send, Zap, Clock, DollarSign, CheckCircle2, ArrowRight, Play, Sparkles,
 import { Link, useNavigate } from "react-router-dom";
 
 // Import assets to ensure Vite bundles them correctly
-import case1Video from "/public/case1.mp4";
-import case2Video from "/public/case2.mp4";
-import case3Video from "/public/case3.mp4";
-import modalBg from "/public/modal-bg.png";
+import case1Video from "../assets/case1.mp4";
+import case2Video from "../assets/case2.mp4";
+import case3Video from "../assets/case3.mp4";
+import modalBg from "../assets/modal-bg.png";
 
 export default function Home() {
   const navigate = useNavigate();
