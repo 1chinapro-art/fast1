@@ -12,6 +12,7 @@ import modalBg from "/public/modal-bg.png";
 export default function Home() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeVideo, setActiveVideo] = useState<{url: string, title: string} | null>(null);
   const telegramLink = "https://t.me/your_telegram_handle"; // Placeholder
 
   const [formData, setFormData] = useState({
@@ -194,8 +195,9 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   className="group cursor-pointer"
+                  onClick={() => setActiveVideo({ url: item.video, title: item.title })}
                 >
-                  <div className={`w-full ${item.ratio} bg-slate-900 rounded-[2rem] mb-8 relative overflow-hidden border border-white/5 group-hover:border-white/20 transition-all duration-700`}>
+                  <div className={`w-full ${item.ratio} bg-slate-900 rounded-[2rem] mb-8 relative overflow-hidden border border-white/5 group-hover:border-white/20 transition-all duration-700 shadow-2xl`}>
                     <video 
                       src={item.video}
                       className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
@@ -501,6 +503,47 @@ export default function Home() {
                     </label>
                   </div>
                 </form>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Video Player Modal */}
+      <AnimatePresence>
+        {activeVideo && (
+          <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 sm:p-8">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setActiveVideo(null)}
+              className="absolute inset-0 bg-slate-950/95 backdrop-blur-md"
+            />
+            
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="relative w-full max-w-5xl aspect-video bg-black rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10"
+            >
+              <button 
+                onClick={() => setActiveVideo(null)}
+                className="absolute top-6 right-6 z-20 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-colors backdrop-blur-md border border-white/10"
+              >
+                <X size={24} className="text-white" />
+              </button>
+
+              <video 
+                src={activeVideo.url}
+                className="w-full h-full"
+                autoPlay
+                controls
+                playsInline
+              />
+              
+              <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent pointer-events-none">
+                <h3 className="text-2xl font-bold text-white tracking-tight">{activeVideo.title}</h3>
               </div>
             </motion.div>
           </div>
