@@ -96,7 +96,7 @@ export default function HtmlPage() {
       <footer className="py-12 border-t border-white/5 text-center text-slate-600 text-xs font-bold uppercase tracking-widest">
         <div className="flex items-center justify-center gap-3 mb-4">
           <Zap size={14} className="text-neon-green" />
-          <span>© 2024 FastMotion Studio</span>
+          <span>© 2026 FastMotion Studio</span>
         </div>
       </footer>
     </div>

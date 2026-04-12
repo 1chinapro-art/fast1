@@ -150,7 +150,7 @@ export default function Home() {
                 <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-black mb-4 sm:mb-6 uppercase tracking-tighter">Наші кейси</h2>
                 <p className="text-lg sm:text-xl text-slate-400 font-light">Реальні проєкти, які вже приносять прибуток нашим клієнтам.</p>
               </div>
-              <div className="text-neon-green font-mono text-xs sm:text-sm tracking-[0.3em] uppercase">Portfolio 2024</div>
+              <div className="text-neon-green font-mono text-xs sm:text-sm tracking-[0.3em] uppercase">Portfolio 2026</div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
@@ -398,7 +398,7 @@ export default function Home() {
                 <div className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center">
                   <Zap size={14} className="text-neon-green" />
                 </div>
-                <span>© 2024 FastMotion Studio. Креатив без кордонів.</span>
+                <span>© 2026 FastMotion Studio. Креатив без кордонів.</span>
               </div>
               <div className="flex gap-10">
                 <Link to="/html" className="hover:text-white transition-colors">HTML5 Анімація</Link>
@@ -435,7 +435,7 @@ export default function Home() {
 
               <div className="w-full aspect-[16/9] relative">
                 <img 
-                  src="/modal-bg.png?v=1" 
+                  src="/555.webp" 
                   alt="Creative Collaboration and Success" 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
