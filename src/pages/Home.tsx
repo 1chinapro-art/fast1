@@ -350,7 +350,7 @@ export default function Home() {
                 }
               ].map((item, i) => (
                 <div key={i} className="relative group">
-                  <div className="text-7xl sm:text-[10rem] font-display font-black text-slate-200 absolute -top-12 sm:-top-24 -left-4 sm:-left-10 select-none group-hover:text-slate-300 transition-colors">
+                  <div className="text-7xl sm:text-[12rem] font-display font-black text-slate-900/[0.08] absolute -top-12 sm:-top-28 -left-4 sm:-left-12 select-none group-hover:text-slate-900/[0.15] transition-all duration-500 tracking-tighter">
                     {item.step}
                   </div>
                   <div className="relative z-10">
@@ -400,8 +400,6 @@ export default function Home() {
               </div>
               <div className="flex gap-10">
                 <Link to="/html" className="hover:text-white transition-colors">HTML5 Анімація</Link>
-                <a href="#" className="hover:text-white transition-colors">Privacy</a>
-                <a href="#" className="hover:text-white transition-colors">Terms</a>
               </div>
             </div>
           </div>
