@@ -8,5 +8,5 @@ coverage/
 !.env.example
 
 # Heavy Media
-public/*.mp4
-public/modal-bg.png
+videos/
+images/
