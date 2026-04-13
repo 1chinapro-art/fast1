@@ -3,6 +3,12 @@ import { motion, AnimatePresence } from "motion/react";
 import { Send, Zap, Clock, DollarSign, CheckCircle2, ArrowRight, Play, Sparkles, Rocket, Palette, Star, TrendingUp, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
+// Import media assets
+import case1Video from "../assets/case1.mp4";
+import case2Video from "../assets/case2.mp4";
+import case3Video from "../assets/case3.mp4";
+import modalBgImage from "../assets/555.webp";
+
 export default function Home() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -162,7 +168,7 @@ export default function Home() {
                   result: "CTR +60%, віральне охоплення",
                   ratio: "aspect-[9/16]",
                   accent: "from-red-600/20",
-                  video: "/case1.mp4?v=2026"
+                  video: case1Video
                 },
                 {
                   title: "Косметика 'To Be'",
@@ -171,7 +177,7 @@ export default function Home() {
                   result: "Зростання продажів у 3 рази",
                   ratio: "aspect-video",
                   accent: "from-blue-600/20",
-                  video: "/case2.mp4?v=2026"
+                  video: case2Video
                 },
                 {
                   title: "Автосалон Porsche",
@@ -180,7 +186,7 @@ export default function Home() {
                   result: "ROI 320% на рекламній кампанії",
                   ratio: "aspect-[9/16]",
                   accent: "from-yellow-600/20",
-                  video: "/case3.mp4?v=2026"
+                  video: case3Video
                 }
               ].map((item, i) => (
                 <motion.div 
@@ -435,7 +441,7 @@ export default function Home() {
 
               <div className="w-full aspect-[16/9] relative">
                 <img 
-                  src="/555.webp?v=2026" 
+                  src={modalBgImage} 
                   alt="Creative Collaboration and Success" 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
