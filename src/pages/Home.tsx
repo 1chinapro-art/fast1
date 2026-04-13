@@ -29,6 +29,17 @@ export default function Home() {
 
   return (
     <div className="min-h-screen font-sans bg-slate-950 text-slate-50 selection:bg-neon-green selection:text-slate-950">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop"
+          alt="Background"
+          className="w-full h-full object-cover opacity-40"
+          referrerPolicy="no-referrer"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black" />
+      </div>
+
       {/* 1. Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-slate-950/40 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -163,7 +174,7 @@ export default function Home() {
                   result: "CTR +60%, віральне охоплення",
                   ratio: "aspect-[9/16]",
                   accent: "from-red-600/20",
-                  video: ""
+                  video: "/case1.mp4"
                 },
                 {
                   title: "Косметика 'To Be'",
@@ -172,7 +183,7 @@ export default function Home() {
                   result: "Зростання продажів у 3 рази",
                   ratio: "aspect-[9/16]",
                   accent: "from-blue-600/20",
-                  video: ""
+                  video: "/case2.mp4"
                 },
                 {
                   title: "Автосалон Porsche",
@@ -181,7 +192,7 @@ export default function Home() {
                   result: "ROI 320% на рекламній кампанії",
                   ratio: "aspect-[9/16]",
                   accent: "from-yellow-600/20",
-                  video: ""
+                  video: "/case3.mp4"
                 },
                 {
                   title: "Marshall",
@@ -190,7 +201,7 @@ export default function Home() {
                   result: "Охоплення 500к+ за тиждень",
                   ratio: "aspect-[9/16]",
                   accent: "from-purple-600/20",
-                  video: ""
+                  video: "/case4.mp4"
                 }
               ].map((item, i) => (
                 <motion.div 
