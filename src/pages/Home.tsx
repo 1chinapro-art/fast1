@@ -456,7 +456,7 @@ export default function Home() {
 
               <div className="w-full aspect-[16/9] relative">
                 <img 
-                  src="images/modal-bg.png" 
+                  src={`${import.meta.env.BASE_URL}videos/images/modal-bg.webp`} 
                   alt="Creative Collaboration and Success" 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
