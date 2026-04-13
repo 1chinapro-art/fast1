@@ -3,13 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Send, Zap, Clock, DollarSign, CheckCircle2, ArrowRight, Play, Sparkles, Rocket, Palette, Star, TrendingUp, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
-// Import media assets
-import case1Video from "../assets/case1.mp4";
-import case2Video from "../assets/case2.mp4";
-import case3Video from "../assets/case3.mp4";
-import case4Video from "../assets/case4.mp4";
-import modalBgImage from "../assets/modal-bg.png";
-
+// FastMotion Studio - Portfolio 2026
 export default function Home() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -169,16 +163,16 @@ export default function Home() {
                   result: "CTR +60%, віральне охоплення",
                   ratio: "aspect-[9/16]",
                   accent: "from-red-600/20",
-                  video: case1Video
+                  video: ""
                 },
                 {
                   title: "Косметика 'To Be'",
                   task: "Преміальна презентація лінійки догляду в екстремальних умовах (гори, фунікулер).",
                   time: "3 дні",
                   result: "Зростання продажів у 3 рази",
-                  ratio: "aspect-video",
+                  ratio: "aspect-[9/16]",
                   accent: "from-blue-600/20",
-                  video: case2Video
+                  video: ""
                 },
                 {
                   title: "Автосалон Porsche",
@@ -187,16 +181,16 @@ export default function Home() {
                   result: "ROI 320% на рекламній кампанії",
                   ratio: "aspect-[9/16]",
                   accent: "from-yellow-600/20",
-                  video: case3Video
+                  video: ""
                 },
                 {
-                  title: "Cass Ai",
-                  task: "Динамічна презентація AI-персонажа з ефектами трансформації одягу та аксесуарів.",
+                  title: "Marshall",
+                  task: "Динамічна презентація навушників Marshall з ефектами трансформації та преміальним звуком.",
                   time: "3 дні",
                   result: "Охоплення 500к+ за тиждень",
                   ratio: "aspect-[9/16]",
                   accent: "from-purple-600/20",
-                  video: case4Video
+                  video: ""
                 }
               ].map((item, i) => (
                 <motion.div 
@@ -451,7 +445,7 @@ export default function Home() {
 
               <div className="w-full aspect-[16/9] relative">
                 <img 
-                  src={modalBgImage} 
+                  src="/modal-bg.png" 
                   alt="Creative Collaboration and Success" 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
