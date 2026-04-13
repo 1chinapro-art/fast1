@@ -7,7 +7,8 @@ import { Link, useNavigate } from "react-router-dom";
 import case1Video from "../assets/case1.mp4";
 import case2Video from "../assets/case2.mp4";
 import case3Video from "../assets/case3.mp4";
-import modalBgImage from "../assets/555.webp";
+import case4Video from "../assets/case4.mp4";
+import modalBgImage from "../assets/modal-bg.png";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -159,7 +160,7 @@ export default function Home() {
               <div className="text-neon-green font-mono text-xs sm:text-sm tracking-[0.3em] uppercase">Portfolio 2026</div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
               {[
                 {
                   title: "Автосалон Chery",
@@ -187,6 +188,15 @@ export default function Home() {
                   ratio: "aspect-[9/16]",
                   accent: "from-yellow-600/20",
                   video: case3Video
+                },
+                {
+                  title: "Cass Ai",
+                  task: "Динамічна презентація AI-персонажа з ефектами трансформації одягу та аксесуарів.",
+                  time: "3 дні",
+                  result: "Охоплення 500к+ за тиждень",
+                  ratio: "aspect-[9/16]",
+                  accent: "from-purple-600/20",
+                  video: case4Video
                 }
               ].map((item, i) => (
                 <motion.div 
