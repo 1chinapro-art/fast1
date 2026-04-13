@@ -174,7 +174,7 @@ export default function Home() {
                   result: "CTR +60%, віральне охоплення",
                   ratio: "aspect-[9/16]",
                   accent: "from-red-600/20",
-                  video: "./videos/case1.mp4"
+                  video: "videos/case1.mp4"
                 },
                 {
                   title: "Косметика 'To Be'",
@@ -183,7 +183,7 @@ export default function Home() {
                   result: "Зростання продажів у 3 рази",
                   ratio: "aspect-[9/16]",
                   accent: "from-blue-600/20",
-                  video: "./videos/case2.mp4"
+                  video: "videos/case2.mp4"
                 },
                 {
                   title: "Автосалон Porsche",
@@ -192,7 +192,7 @@ export default function Home() {
                   result: "ROI 320% на рекламній кампанії",
                   ratio: "aspect-[9/16]",
                   accent: "from-yellow-600/20",
-                  video: "./videos/case3.mp4"
+                  video: "videos/case3.mp4"
                 },
                 {
                   title: "Marshall",
@@ -201,7 +201,7 @@ export default function Home() {
                   result: "Охоплення 500к+ за тиждень",
                   ratio: "aspect-[9/16]",
                   accent: "from-purple-600/20",
-                  video: "./videos/case4.mp4"
+                  video: "videos/case4.mp4"
                 }
               ].map((item, i) => (
                 <motion.div 
@@ -456,7 +456,7 @@ export default function Home() {
 
               <div className="w-full aspect-[16/9] relative">
                 <img 
-                  src="./images/modal-bg.png" 
+                  src="images/modal-bg.png" 
                   alt="Creative Collaboration and Success" 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
