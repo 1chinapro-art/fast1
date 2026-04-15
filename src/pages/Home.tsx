@@ -174,7 +174,7 @@ export default function Home() {
                   result: "CTR +60%, віральне охоплення",
                   ratio: "aspect-[9/16]",
                   accent: "from-red-600/20",
-                  video: "https://cdn.pixabay.com/video/2020/10/21/53010-472344078_tiny.mp4"
+                  video: "videos/case1.mp4"
                 },
                 {
                   title: "Косметика 'To Be'",
@@ -183,7 +183,7 @@ export default function Home() {
                   result: "Зростання продажів у 3 рази",
                   ratio: "aspect-[9/16]",
                   accent: "from-blue-600/20",
-                  video: "https://cdn.pixabay.com/video/2021/04/12/70875-537443831_tiny.mp4"
+                  video: "videos/case2.mp4"
                 },
                 {
                   title: "Автосалон Porsche",
@@ -192,7 +192,7 @@ export default function Home() {
                   result: "ROI 320% на рекламній кампанії",
                   ratio: "aspect-[9/16]",
                   accent: "from-yellow-600/20",
-                  video: "https://cdn.pixabay.com/video/2023/10/20/185852-876615852_tiny.mp4"
+                  video: "videos/case3.mp4"
                 },
                 {
                   title: "Marshall",
@@ -201,7 +201,7 @@ export default function Home() {
                   result: "Охоплення 500к+ за тиждень",
                   ratio: "aspect-[9/16]",
                   accent: "from-purple-600/20",
-                  video: "https://cdn.pixabay.com/video/2022/01/18/104688-666838320_tiny.mp4"
+                  video: "videos/case4.mp4"
                 }
               ].map((item, i) => (
                 <motion.div 
@@ -210,11 +210,11 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   className="group cursor-pointer"
-                  onClick={() => setActiveVideo({ url: item.video, title: item.title })}
+                  onClick={() => setActiveVideo({ url: `${import.meta.env.BASE_URL}${item.video}`, title: item.title })}
                 >
                   <div className={`w-full ${item.ratio} bg-slate-900 rounded-[2rem] mb-8 relative overflow-hidden border border-white/5 group-hover:border-white/20 transition-all duration-700 shadow-2xl`}>
                     <video 
-                      src={item.video}
+                      src={`${import.meta.env.BASE_URL}${item.video}`}
                       className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
                       muted
                       loop
