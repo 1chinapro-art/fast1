@@ -210,11 +210,11 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   className="group cursor-pointer"
-                  onClick={() => setActiveVideo({ url: `${import.meta.env.BASE_URL}${item.video}`, title: item.title })}
+                  onClick={() => setActiveVideo({ url: item.video, title: item.title })}
                 >
                   <div className={`w-full ${item.ratio} bg-slate-900 rounded-[2rem] mb-8 relative overflow-hidden border border-white/5 group-hover:border-white/20 transition-all duration-700 shadow-2xl`}>
                     <video 
-                      src={`${import.meta.env.BASE_URL}${item.video}`}
+                      src={item.video}
                       className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
                       muted
                       loop
