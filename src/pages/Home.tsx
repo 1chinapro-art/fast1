@@ -219,13 +219,23 @@ export default function Home() {
                       muted
                       loop
                       playsInline
-                      preload="metadata"
-                      onMouseOver={(e) => e.currentTarget.play()}
+                      preload="auto"
+                      onMouseOver={(e) => {
+                        const playPromise = e.currentTarget.play();
+                        if (playPromise !== undefined) {
+                          playPromise.catch(() => {
+                            // Auto-play was prevented
+                          });
+                        }
+                      }}
                       onMouseOut={(e) => {
                         e.currentTarget.pause();
                         e.currentTarget.currentTime = 0;
                       }}
-                    />
+                    >
+                      <source src={`${import.meta.env.BASE_URL}${item.video}`} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
                     <div className="absolute inset-0 pointer-events-none flex items-center justify-center group-hover:opacity-0 transition-opacity duration-300">
                       <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20">
                         <Play className="text-white fill-white ml-1" size={32} />
@@ -519,38 +529,38 @@ export default function Home() {
       {/* Video Player Modal */}
       <AnimatePresence>
         {activeVideo && (
-          <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 sm:p-8">
+          <div className="fixed inset-0 z-[110] flex items-center justify-center sm:p-8">
             <motion.div 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setActiveVideo(null)}
-              className="absolute inset-0 bg-slate-950/95 backdrop-blur-md"
+              className="absolute inset-0 bg-slate-950/98 backdrop-blur-xl"
             />
             
             <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className="relative w-full max-w-5xl aspect-video bg-black rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10"
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="relative w-full h-full sm:h-auto sm:max-w-[450px] sm:aspect-[9/16] bg-black sm:rounded-[3rem] overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.8)] border-white/10 sm:border"
             >
               <button 
                 onClick={() => setActiveVideo(null)}
-                className="absolute top-6 right-6 z-20 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-colors backdrop-blur-md border border-white/10"
+                className="absolute top-6 right-6 z-20 p-3 bg-black/40 hover:bg-black/60 rounded-full transition-colors backdrop-blur-md border border-white/10"
               >
                 <X size={24} className="text-white" />
               </button>
 
               <video 
                 src={activeVideo.url}
-                className="w-full h-full"
+                className="w-full h-full object-contain sm:object-cover"
                 autoPlay
                 controls
                 playsInline
               />
               
-              <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent pointer-events-none">
-                <h3 className="text-2xl font-bold text-white tracking-tight">{activeVideo.title}</h3>
+              <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none">
+                <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">{activeVideo.title}</h3>
               </div>
             </motion.div>
           </div>
