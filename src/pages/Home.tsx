@@ -446,7 +446,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-2xl bg-white rounded-[2.5rem] overflow-hidden shadow-2xl max-h-[90vh] overflow-y-auto"
+              className="relative w-full max-w-lg bg-white rounded-[2.5rem] overflow-hidden shadow-2xl max-h-[90vh] overflow-y-auto"
             >
               <button 
                 onClick={() => setIsModalOpen(false)}
@@ -455,26 +455,17 @@ export default function Home() {
                 <X size={24} className="text-slate-900" />
               </button>
 
-              <div className="w-full aspect-[16/9] relative">
-                <img 
-                  src={`${import.meta.env.BASE_URL}videos/modal-bg.webp`} 
-                  alt="Creative Collaboration and Success" 
-                  className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-              
-              <div className="p-8 sm:p-12 text-center text-slate-950">
-                <h2 className="text-3xl sm:text-4xl font-display font-black mb-4 tracking-tight">Залиш заявку</h2>
-                <p className="text-slate-500 text-lg mb-10">Отримай прорахунок протягом 24 годин</p>
+              <div className="p-8 sm:p-10 text-center text-slate-950">
+                <h2 className="text-3xl font-display font-black mb-2 tracking-tight">Залиш заявку</h2>
+                <p className="text-slate-500 text-base mb-8">Отримай прорахунок протягом 24 годин</p>
                 
-                <form onSubmit={handleSubmit} className="space-y-5 text-left">
+                <form onSubmit={handleSubmit} className="space-y-4 text-left">
                   <div>
                     <input 
                       type="text" 
                       placeholder="Ім'я"
                       required
-                      className="w-full px-6 py-4 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-1 focus:ring-slate-900 outline-none transition-all text-lg"
+                      className="w-full px-5 py-3 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-1 focus:ring-slate-900 outline-none transition-all text-base"
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
                     />
@@ -484,16 +475,16 @@ export default function Home() {
                       type="tel" 
                       placeholder="Phone"
                       required
-                      className="w-full px-6 py-4 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-1 focus:ring-slate-900 outline-none transition-all text-lg"
+                      className="w-full px-5 py-3 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-1 focus:ring-slate-900 outline-none transition-all text-base"
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
                     />
                   </div>
                   <div>
-                    <label className="block text-slate-600 mb-2 font-medium">Галузь бізнесу та адреса сайту</label>
+                    <label className="block text-slate-600 mb-1 text-sm font-medium">Галузь бізнесу та адреса сайту</label>
                     <input 
                       type="text" 
-                      className="w-full px-6 py-4 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-1 focus:ring-slate-900 outline-none transition-all text-lg"
+                      className="w-full px-5 py-3 rounded-xl border border-slate-200 focus:border-slate-900 focus:ring-1 focus:ring-slate-900 outline-none transition-all text-base"
                       value={formData.business}
                       onChange={(e) => setFormData({...formData, business: e.target.value})}
                     />
@@ -501,7 +492,7 @@ export default function Home() {
                   
                   <button 
                     type="submit"
-                    className="w-full bg-black text-white py-5 rounded-xl text-xl font-bold hover:bg-slate-800 transition-colors mt-6"
+                    className="w-full bg-slate-950 text-white py-4 rounded-xl font-black uppercase tracking-widest hover:bg-slate-800 transition-colors mt-4"
                   >
                     Відправити заявку
                   </button>
