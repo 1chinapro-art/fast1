@@ -7,6 +7,5 @@ coverage/
 .env*
 !.env.example
 # Heavy Media - Protect from sync deletion
-public/videos/*
-!public/videos/.gitkeep
+public/videos/
 

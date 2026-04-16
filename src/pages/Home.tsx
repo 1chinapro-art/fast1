@@ -214,7 +214,6 @@ export default function Home() {
                 >
                   <div className={`w-full ${item.ratio} bg-slate-900 rounded-[2rem] mb-8 relative overflow-hidden border border-white/5 group-hover:border-white/20 transition-all duration-700 shadow-2xl`}>
                     <video 
-                      src={`${import.meta.env.BASE_URL}${item.video}`}
                       className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
                       muted
                       loop
@@ -223,9 +222,7 @@ export default function Home() {
                       onMouseOver={(e) => {
                         const playPromise = e.currentTarget.play();
                         if (playPromise !== undefined) {
-                          playPromise.catch(() => {
-                            // Auto-play was prevented
-                          });
+                          playPromise.catch(() => {});
                         }
                       }}
                       onMouseOut={(e) => {
@@ -234,7 +231,6 @@ export default function Home() {
                       }}
                     >
                       <source src={`${import.meta.env.BASE_URL}${item.video}`} type="video/mp4" />
-                      Your browser does not support the video tag.
                     </video>
                     <div className="absolute inset-0 pointer-events-none flex items-center justify-center group-hover:opacity-0 transition-opacity duration-300">
                       <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20">
