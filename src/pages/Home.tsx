@@ -32,7 +32,7 @@ export default function Home() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop"
+          src={`${import.meta.env.BASE_URL}videos/modal-bg.webp`}
           alt="Background"
           className="w-full h-full object-cover opacity-40"
           referrerPolicy="no-referrer"
@@ -210,15 +210,16 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   className="group cursor-pointer"
-                  onClick={() => setActiveVideo({ url: item.video, title: item.title })}
+                  onClick={() => setActiveVideo({ url: `${import.meta.env.BASE_URL}${item.video}`, title: item.title })}
                 >
                   <div className={`w-full ${item.ratio} bg-slate-900 rounded-[2rem] mb-8 relative overflow-hidden border border-white/5 group-hover:border-white/20 transition-all duration-700 shadow-2xl`}>
                     <video 
-                      src={item.video}
+                      src={`${import.meta.env.BASE_URL}${item.video}`}
                       className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500"
                       muted
                       loop
                       playsInline
+                      preload="metadata"
                       onMouseOver={(e) => e.currentTarget.play()}
                       onMouseOut={(e) => {
                         e.currentTarget.pause();
@@ -456,7 +457,7 @@ export default function Home() {
 
               <div className="w-full aspect-[16/9] relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=2070&auto=format&fit=crop" 
+                  src={`${import.meta.env.BASE_URL}videos/modal-bg.webp`} 
                   alt="Creative Collaboration and Success" 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
