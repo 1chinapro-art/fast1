@@ -8,6 +8,8 @@ export default function Home() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeVideo, setActiveVideo] = useState<{url: string, title: string} | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const telegramLink = "https://t.me/your_telegram_handle"; // Placeholder
 
   const [formData, setFormData] = useState({
@@ -17,13 +19,47 @@ export default function Home() {
     agreed: true
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.agreed && formData.name && formData.phone) {
-      // Simulate form submission
-      console.log("Form submitted:", formData);
+
+    if (!formData.agreed || !formData.name.trim() || !formData.phone.trim()) {
+      setSubmitError("Заповніть ім'я, телефон та підтвердіть згоду.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const response = await fetch(`${import.meta.env.BASE_URL}api/leads`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        let errorMessage = "Не вдалося відправити заявку. Спробуйте ще раз.";
+        try {
+          const result = (await response.json()) as { error?: string };
+          if (result.error) {
+            errorMessage = result.error;
+          }
+        } catch (error) {
+          console.warn("Lead error response is not JSON", error);
+        }
+
+        throw new Error(errorMessage);
+      }
+
       setIsModalOpen(false);
       navigate("/thank-you");
+    } catch (error) {
+      console.error("Lead submission failed", error);
+      setSubmitError("Не вдалося відправити заявку. Перевірте інтернет і спробуйте ще раз.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -498,10 +534,17 @@ export default function Home() {
                   
                   <button 
                     type="submit"
-                    className="w-full bg-slate-950 text-white py-4 rounded-xl font-black uppercase tracking-widest hover:bg-slate-800 transition-colors mt-4"
+                    disabled={isSubmitting || !formData.agreed}
+                    className="w-full bg-slate-950 text-white py-4 rounded-xl font-black uppercase tracking-widest hover:bg-slate-800 transition-colors mt-4 disabled:cursor-not-allowed disabled:opacity-50"
                   >
-                    Відправити заявку
+                    {isSubmitting ? "Відправляємо..." : "Відправити заявку"}
                   </button>
+
+                  {submitError && (
+                    <p className="text-sm font-medium text-red-600 text-center" role="alert">
+                      {submitError}
+                    </p>
+                  )}
                   
                   <div className="flex gap-4 mt-6 items-start">
                     <input 
